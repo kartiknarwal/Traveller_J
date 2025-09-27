@@ -119,7 +119,7 @@ function Index() {
       location: formData?.location || "",
       budget: formData?.budget || "",
       travellers: formData?.travellers || "",
-      noOfDays: formData?.noOfDays || "",
+      noOfDays: Number (formData?.noOfDays || ""),
     };
 
     try {
@@ -171,10 +171,13 @@ function Index() {
             How many days are you planning your trip?
           </h2>
           <Input
-            placeholder="Ex. 3"
-            type="number"
-            onChange={(e) => handleInputChange("noOfDays", e.target.value)}
-          />
+          placeholder="Ex. 3"
+          type="number"
+         onChange={(e) =>
+           handleInputChange("noOfDays", parseInt(e.target.value) || 0)
+          }
+         />
+
         </div>
       </div>
 
